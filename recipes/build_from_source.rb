@@ -4,6 +4,7 @@
 #
 
 include_recipe "java"
+include_recipe 'spark::sbt'
 
 version = node[:spark][:version]
 install_dir = node[:spark][:install_dir]
