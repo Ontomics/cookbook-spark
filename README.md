@@ -6,8 +6,10 @@ This cookbook helps you to install Apache Spark.
 Requirements
 ------------
 
-#### packages
-- `java` - spark runs on JVM so java is required.
+#### dependencies
+- `git` - Need git when build spark from source
+- `apt` - To install other packages
+- `java` - To install Java as spark runs on JVM
 
 Attributes
 ----------
