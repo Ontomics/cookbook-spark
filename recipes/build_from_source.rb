@@ -3,8 +3,9 @@
 # Recipe:: download_from_source
 #
 
-include_recipe "java"
+include_recipe 'java'
 include_recipe 'spark::sbt'
+include_recipe 'git'
 
 version = node[:spark][:version]
 install_dir = node[:spark][:install_dir]
@@ -23,7 +24,7 @@ end
 download_url = "http://d3kbcqa49mib13.cloudfront.net/spark-#{node[:spark][:version]}.tgz"
 download_to_path = ::File.join Chef::Config[:file_cache_path], "#{spark_base}.tgz"
 remote_file download_to_path do
-  mode "0644"
+  mode '0644'
   source download_url
   action :create
   not_if "test -f #{download_to_path}"
@@ -32,7 +33,7 @@ end
 # Create install directory
 directory node[:spark][:install_dir] do
   owner node[:spark][:user]
-  mode "0755"
+  mode '0755'
 end
 
 # Extract downloaded source file
