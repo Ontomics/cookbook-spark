@@ -17,7 +17,7 @@ end
 
 # Download source
 download_url = "http://d3kbcqa49mib13.cloudfront.net/spark-#{node[:spark][:version]}.tgz"
-download_to_path = ::File.join Chef::Config[:file_cache_path], spark_base, '.tgz'
+download_to_path = ::File.join Chef::Config[:file_cache_path], "#{spark_base}.tgz"
 remote_file download_to_path do
   mode "0644"
   source download_url
