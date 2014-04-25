@@ -6,8 +6,6 @@
 include_recipe "java"
 include_recipe 'spark::sbt'
 
-package 'git'
-
 version = node[:spark][:version]
 install_dir = node[:spark][:install_dir]
 spark_base = "spark-#{node[:spark][:version]}"
