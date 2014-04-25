@@ -36,7 +36,7 @@ directory node[:spark][:install_dir] do
   mode '0755'
 end
 
-# Extract downloaded source file
+# Extract downloaded source file and build
 unless ::File.exists?(::File.join(node[:spark][:install_dir], spark_base))
   execute 'extract downloaded file' do
     user node[:spark][:user]
@@ -45,11 +45,11 @@ unless ::File.exists?(::File.join(node[:spark][:install_dir], spark_base))
     cwd node[:spark][:install_dir]
     command "tar -zxvf #{download_to_path}"
   end
-end
 
-execute 'build by using simple build tool' do
-  user node[:spark][:user]
-  group node[:spark][:group]
-  cwd "#{node[:spark][:install_dir]}/spark-#{node[:spark][:version]}"
-  command 'sbt/sbt clean assembly'
+  execute 'build by using simple build tool' do
+    user node[:spark][:user]
+    group node[:spark][:group]
+    cwd "#{node[:spark][:install_dir]}/spark-#{node[:spark][:version]}"
+    command 'sbt/sbt clean assembly'
+  end
 end
