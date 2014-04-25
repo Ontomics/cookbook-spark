@@ -6,16 +6,13 @@ This cookbook helps you to install Apache Spark.
 Requirements
 ------------
 
-e.g.
 #### packages
-- `toaster` - spark-cookbook needs toaster to brown your bagel.
+- `java` - spark runs on JVM so java is required.
 
 Attributes
 ----------
-TODO: List your cookbook attributes here.
 
-e.g.
-#### spark-cookbook::default
+#### spark::default
 <table>
   <tr>
     <th>Key</th>
@@ -24,24 +21,48 @@ e.g.
     <th>Default</th>
   </tr>
   <tr>
-    <td><tt>['spark-cookbook']['bacon']</tt></td>
-    <td>Boolean</td>
-    <td>whether to include bacon</td>
-    <td><tt>true</tt></td>
+    <td><tt>['spark']['version']</tt></td>
+    <td>String</td>
+    <td>Spark version</td>
+    <td><tt>0.9.1</tt></td>
+  </tr>
+  <tr>
+    <td><tt>['spark']['install_dir']</tt></td>
+    <td>String</td>
+    <td>Where you want to install spark to</td>
+    <td><tt>/usr/local</tt></td>
+  </tr>
+  <tr>
+    <td><tt>['spark']['user']</tt></td>
+    <td>String</td>
+    <td>User installs/runs spark process</td>
+    <td><tt>spark</tt></td>
+  </tr>
+  <tr>
+    <td><tt>['spark']['group']</tt></td>
+    <td>String</td>
+    <td>Group installs/runs spark process</td>
+    <td><tt>spark</tt></td>
+  </tr>
+  <tr>
+    <td><tt>['spark']['sbt_version']</tt></td>
+    <td>String</td>
+    <td>Version of sbt when you when to build from source</td>
+    <td><tt>0.13.2</tt></td>
   </tr>
 </table>
 
 Usage
 -----
-#### spark-cookbook::default
+#### spark::build_from_source
 
-Just include `spark-cookbook` in your node's `run_list`:
+Just include `spark::build_from_source` in your node's `run_list`:
 
 ```json
 {
   "name":"my_node",
   "run_list": [
-    "recipe[spark-cookbook]"
+    "recipe[spark::build_from_source]"
   ]
 }
 ```
