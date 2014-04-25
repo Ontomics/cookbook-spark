@@ -2,6 +2,7 @@
 # Cookbook Name:: spark
 # Recipe:: sbt
 #
+include_recipe "apt"
 
 target_file = "#{Chef::Config[:file_cache_path]}/sbt_remote.deb"
 
