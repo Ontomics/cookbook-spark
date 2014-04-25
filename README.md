@@ -9,7 +9,7 @@ Requirements
 #### dependencies
 - `git` - Need git when build spark from source
 - `apt` - To install other packages
-- `java` - To install Java as spark runs on JVM
+- `java` - To install Java as spark runs on top of JVM
 
 Attributes
 ----------
