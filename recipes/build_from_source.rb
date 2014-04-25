@@ -2,6 +2,9 @@
 # Cookbook Name:: spark-cookbook
 # Recipe:: download_from_source
 #
+
+include_recipe "java"
+
 version = node[:spark][:version]
 install_dir = node[:spark][:install_dir]
 spark_base = "spark-#{node[:spark][:version]}"
