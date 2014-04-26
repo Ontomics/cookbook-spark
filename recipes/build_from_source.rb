@@ -45,11 +45,4 @@ unless ::File.exists?(::File.join(node[:spark][:install_dir], spark_base))
     cwd node[:spark][:install_dir]
     command "tar -zxvf #{download_to_path}"
   end
-
-  execute 'build by using simple build tool' do
-    user node[:spark][:user]
-    group node[:spark][:group]
-    cwd "#{node[:spark][:install_dir]}/spark-#{node[:spark][:version]}"
-    command 'sbt/sbt clean assembly'
-  end
 end
